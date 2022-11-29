@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @-webkit-keyframes my {
+            0% { color: #FF0000; }
+            50% { color: #fff;  }
+            100% { color: #3300FF;  }
+        }
+        @-moz-keyframes my {
+            0% { color: #FF0000;  }
+            50% { color: #fff;  }
+            100% { color: #3300FF;  }
+        }
+        @-o-keyframes my {
+            0% { color: #FF0000; }
+            50% { color: #fff; }
+            100% { color: #3300FF;  }
+        }
+        @keyframes my {
+            0% { color: #3300FF;  }
+            50% { color: #fff;  }
+            100% { color: #3300FF;  }
+        }
+        .chutieude {
+            font-size:24px;
+            font-weight:bold;
+            -webkit-animation: my 700ms infinite;
+            -moz-animation: my 700ms infinite;
+            -o-animation: my 700ms infinite;
+            animation: my 700ms infinite;
+        }
+    </style>
+</head>
+<body>
+<h1 class="chutieude" style="font-size: 40px; text-align: center ">CREATE THE SONG</h1>
+<form action="/save" th:object="${theSong}" method="post">
+
+    <div>
+        <label class="form-label">Tên bài hát :</label>
+        <input class="form-control" type="text" placeholder="Tên bài hát" th:field="*{name}"/></div>
+    <p th:errors = "*{name}" class="text-danger"></p>
+    <div>
+        <label class="form-label"> Trình bày :</label>
+        <input class="form-control" type="text" placeholder="Người thể hiện" th:field="*{present}"/>
+        <p th:errors = "*{present}" class="text-danger"></p>
+
+    </div>
+    <div>
+        <label class="form-label">Thể loại :</label>
+        <input class="form-control" type="text" placeholder="Thể loại" th:field="*{songType}"/>
+        <p th:errors = "*{songType}" class="text-danger"></p>
+
+    </div>
+
+    <div style="text-align: center"><input type="submit" value="Save" class="m-3 btn btn-info"></div>
+</form>
+</body>
+</html>
