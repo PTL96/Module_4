@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        #body-row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        #sidebar-container {
+            min-height: 100vh;
+            background-color: lavender;
+            padding: 0;
+        }
+
+        .sidebar-expanded {
+            width: 230px;
+        }
+
+        {
+            width: 100px;
+        }
+
+
+        #sidebar-container .list-group a {
+            height: 50px;
+            color: black;
+        }
+
+
+        #sidebar-container .list-group li.list-group-item {
+            background-color: #CC99FF;
+        }
+
+        #sidebar-container .list-group .sidebar-submenu a {
+            height: 45px;
+            padding-left: 30px;
+        }
+
+        .sidebar-submenu {
+            font-size: 0.9rem;
+        }
+
+        .sidebar-separator-title {
+            background-color: lavender;
+            height: 35px;
+        }
+
+        .sidebar-separator {
+            background-color: lavender;
+            height: 25px;
+        }
+
+        a.bg-dark {
+            background-color: lavender !important;
+
+
+        }
+        @-webkit-keyframes my {
+            0% { color: #FF3333; }
+            50% { color: #FFCC00;  }
+            100% { color: #FF3333;  }
+        }
+        @-moz-keyframes my {
+            0% { color: #FF3333;  }
+            50% { color: #FFCC00;  }
+            100% { color: #FF3333;  }
+        }
+        @-o-keyframes my {
+            0% { color: #FF3333; }
+            50% { color: #FFCC00; }
+            100% { color: #FF3333;  }
+        }
+        @keyframes my {
+            0% { color: #FF3333;  }
+            50% { color: #FFCC00;  }
+            100% { color: #FF3333;  }
+        }
+        .chutieude {
+            font-size:24px;
+            font-weight:bold;
+            -webkit-animation: my 700ms infinite;
+            -moz-animation: my 700ms infinite;
+            -o-animation: my 700ms infinite;
+            animation: my 700ms infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top" style="background-color: #CC99FF">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Menu
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/product}">Phone</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Laptop</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Accessory</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="header" style="background-color:lavender; margin-top: 50px">
+    <img src="https://furamavietnam.com/wp-content/uploads/2019/02/Ariyana-Tourism-Complex-02-2.png" style="padding-left: 240px; height: 200px">
+
+    <p class="chutieude" style=" font-size: 13px; margin-left: 1300px">103 – 105 Đường Võ Nguyên Giáp,<br>
+        Phường Khuê Mỹ, Quận Ngũ hành Sơn,<br> Tp. Đà Nẵng, Việt Nam<br>
+        7.0 km từ Sân bay Quốc tế Đà Nẵng</p>
+</div>
+
+<div class="chutieude" style="font-size: 35px; background-color: lavender">
+    <marquee scrollamount = 15>꧁༺ĐIỆN MÁY MÀU HƯỜNG KÍNH CHÀO QUÝ KHÁCH༻꧂</marquee>
+</div>
+
+<div class="container-fluid p-0" style="background-color:lavender">
+    <div class="row " id="body-row">
+        <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+            <ul class="list-group">
+                <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                    <small>MAIN MENU</small>
+                </li>
+                <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-dashboard fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Dashboard</span>
+                        <span class="submenu-icon ml-auto"></span>
+                    </div>
+                </a>
+                <div id='submenu1' class="collapse sidebar-submenu">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Charts</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Reports</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Tables</span>
+                    </a>
+                </div>
+                <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-user fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Profile</span>
+                        <span class="submenu-icon ml-auto"></span>
+                    </div>
+                </a>
+                <div id='submenu2' class="collapse sidebar-submenu">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Settings</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                        <span class="menu-collapsed">Password</span>
+                    </a>
+                </div>
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-tasks fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Tasks</span>
+                    </div>
+                </a>
+                <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                    <small>OPTIONS</small>
+                </li>
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-calendar fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Calendar</span>
+                    </div>
+                </a>
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-envelope-o fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2"></span></span>
+                    </div>
+                </a>
+                <li class="list-group-item sidebar-separator menu-collapsed"></li>
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-question fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Help</span>
+                    </div>
+                </a>
+                <a href="#" data-toggle="sidebar-colapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span id="collapse-icon" class="fa fa-2x mr-3"></span>
+                        <span id="collapse-text" class="menu-collapsed">Collapse</span>
+                    </div>
+                </a>
+            </ul>
+        </div>
+
+        <!-- MAIN -->
+        <div class="col">
+            <div class="card">
+                <h4 class="card-header chutieude" style="color: red">Hot line: 0349.37.3789</h4>
+                <div class="card-body">
+                    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+
+                        <div class="carousel-inner" style="margin-bottom: 100px">
+                            <div class="carousel-item active" data-bs-interval="2000" style="height: 100%; width: 100%">
+                                <img src="https://wallpaperaccess.com/full/865178.jpg" class="d-block w-100" alt="..." >
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1 style="color: darkorange">KHU NGHỈ DƯỠNG ĐẲNG CẤP</h1>
+                                    <p style="color: darkorange">NỔI TIẾNG LÀ KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT NAM</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="2000" style="height: 100%; width: 100%">
+                                <img src="https://images2.alphacoders.com/677/thumb-1920-677605.jpg" class="d-block w-100" alt="..." >
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1 style="color: darkorange">KHU NGHỈ DƯỠNG ĐẲNG CẤP</h1>
+                                    <p style="color: darkorange">NỔI TIẾNG LÀ KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT NAM</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="2000" style="height: 100%; width: 100%">
+                                <img src="https://scr.vn/wp-content/uploads/2020/07/%E1%BA%A2nh-bi%E1%BB%83n-Full-HD-c%E1%BB%B1c-%C4%91%E1%BA%B9p.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1 style="color: darkorange">KHU NGHỈ DƯỠNG ĐẲNG CẤP</h1>
+                                    <p style="color: darkorange">NỔI TIẾNG LÀ KHU NGHỈ DƯỠNG ẨM THỰC TẠI VIỆT NAM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="text-center text-lg-start text-muted" style="background-color: lavender">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div>
+            <a href="" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+
+    </section>
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>Company name
+                    </h6>
+                    <p>
+                        Công ty du lịch và dịch vụ giải trí Furama
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Products
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Angular</a>
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Useful links
+                    </h6>
+
+                    <p>
+                        <a href="#!" class="text-reset">Settings</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Help</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <p><i class="fas fa-home me-3"></i>Hot line: 0349.37.3789</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        skyfreedom45@gmail.com
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color:#CC99FF">
+        © 2022 Copyright:
+        <a class="text-reset fw-bold" >Tuấn Linh</a>
+    </div>
+</footer>
+
+</body>
+</html>
