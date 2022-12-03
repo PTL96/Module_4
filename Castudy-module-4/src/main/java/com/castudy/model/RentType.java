@@ -1,6 +1,5 @@
-package com.castudy.model.facilityDto;
+package com.castudy.model;
 
-import com.castudy.model.Facility;
 
 import javax.persistence.*;
 import java.util.Set;

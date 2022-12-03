@@ -1,4 +1,5 @@
-package com.castudy.service;
+package com.castudy.service.impl;
 
 public class FacilityService {
+
 }
