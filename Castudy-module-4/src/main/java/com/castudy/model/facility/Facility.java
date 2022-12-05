@@ -1,4 +1,4 @@
-package com.castudy.model;
+package com.castudy.model.facility;
 
 import javax.persistence.*;
 
@@ -6,14 +6,12 @@ import javax.persistence.*;
 @Entity
 public class Facility {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String names;
-    private int areaRoom;
-    private String price;
+    private int area;
+    private String cost;
     private int maxPeople;
-    private int rentTypeId;
-    private int facilityTypeId;
     private String standardRoom;
     private String otherConvenience;
     private String poolArea;
@@ -24,18 +22,15 @@ public class Facility {
     @ManyToOne
     private RentType rentType;
 
-
     public Facility() {
     }
 
-    public Facility(int id, String names, int areaRoom, String price, int maxPeople, int rentTypeId, int facilityTypeId, String standardRoom, String otherConvenience, String poolArea, int numberFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
+    public Facility(int id, String names, int area, String cost, int maxPeople, String standardRoom, String otherConvenience, String poolArea, int numberFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
         this.id = id;
         this.names = names;
-        this.areaRoom = areaRoom;
-        this.price = price;
+        this.area = area;
+        this.cost = cost;
         this.maxPeople = maxPeople;
-        this.rentTypeId = rentTypeId;
-        this.facilityTypeId = facilityTypeId;
         this.standardRoom = standardRoom;
         this.otherConvenience = otherConvenience;
         this.poolArea = poolArea;
@@ -61,20 +56,20 @@ public class Facility {
         this.names = names;
     }
 
-    public int getAreaRoom() {
-        return areaRoom;
+    public int getArea() {
+        return area;
     }
 
-    public void setAreaRoom(int areaRoom) {
-        this.areaRoom = areaRoom;
+    public void setArea(int area) {
+        this.area = area;
     }
 
-    public String getPrice() {
-        return price;
+    public String getCost() {
+        return cost;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setCost(String cost) {
+        this.cost = cost;
     }
 
     public int getMaxPeople() {
@@ -83,22 +78,6 @@ public class Facility {
 
     public void setMaxPeople(int maxPeople) {
         this.maxPeople = maxPeople;
-    }
-
-    public int getRentTypeId() {
-        return rentTypeId;
-    }
-
-    public void setRentTypeId(int rentTypeId) {
-        this.rentTypeId = rentTypeId;
-    }
-
-    public int getFacilityTypeId() {
-        return facilityTypeId;
-    }
-
-    public void setFacilityTypeId(int facilityTypeId) {
-        this.facilityTypeId = facilityTypeId;
     }
 
     public String getStandardRoom() {

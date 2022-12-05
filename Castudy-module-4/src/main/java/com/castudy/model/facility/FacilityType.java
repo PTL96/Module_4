@@ -1,22 +1,23 @@
-package com.castudy.model;
+package com.castudy.model.facility;
 
+import com.castudy.model.facility.Facility;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class RentType {
+public class FacilityType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String names;
-    @OneToMany(mappedBy = "rentType")
-    private Set<Facility>facilities;
+    @OneToMany(mappedBy = "facilityType")
+    private Set<Facility> facilities;
 
-    public RentType() {
+    public FacilityType() {
     }
 
-    public RentType(int id, String names, Set<Facility> facilities) {
+    public FacilityType(int id, String names, Set<Facility> facilities) {
         this.id = id;
         this.names = names;
         this.facilities = facilities;
