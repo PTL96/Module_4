@@ -4,19 +4,16 @@ import com.castudy.model.facility.Facility;
 import com.castudy.repository.IFacilityRepository;
 import com.castudy.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public class FacilityService implements IFacilityService {
     @Autowired
     IFacilityRepository facilityRepository;
-
-    @Override
-    public List<Facility> findAll() {
-        return facilityRepository.findAll();
-    }
 
     @Override
     public Object findById(Integer id) {
@@ -26,5 +23,15 @@ public class FacilityService implements IFacilityService {
     @Override
     public void save(Facility facility) {
         facilityRepository.save(facility);
+    }
+
+    @Override
+    public void delete(Integer deleteId) {
+        facilityRepository.deleteById(deleteId);
+    }
+
+    @Override
+    public Page<Facility> searchPage(Pageable pageable, String names, String facility_type) {
+        return facilityRepository.searchPage(pageable,names,facility_type);
     }
 }

@@ -22,7 +22,14 @@
     </a>
     <h1 style="font-size: 40px; color: white">FACILITY</h1>
     <form class="d-flex" action="  " style="text-align: center; padding-bottom: 10px;margin: 0 10px">
-        <input class="form-control me-2" name="searchName" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" name="names" type="search" placeholder="Search name" aria-label="Search">
+        <select class="form-select" aria-label="Default select example" name="facility_type"
+                style="padding-right: 10px">
+            <option selected>Facility type:</option>
+            <option value="1">Villa</option>
+            <option value="2">House</option>
+            <option value="3">Room</option>
+        </select>
         <button class="btn btn-primary" type="submit" style="float: left; margin-right: 75%; font-size: 15px">Search
         </button>
     </form>
@@ -47,8 +54,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="facility, varStatus:${facilityList}" style="text-align: center">
-            <td th:text="${varStatus.count}"></td>
+        <tr th:each="facility, varStatus:${facilityPage}" style="text-align: center">
+            <td th:text="${varStatus.count}+${facilityPage.number}*${facilityPage.size}"></td>
             <td th:text="${facility.names}"></td>
             <td th:text="${facility.area}"></td>
             <td th:text="${facility.cost}"></td>
@@ -64,13 +71,58 @@
                 <a class="btn btn-outline-warning" style="font-size: 14px">Sửa</a>
             </td>
             <td>
-                <a class="btn btn-outline-danger" style="font-size: 14px">Xóa</a>
+                <a class="btn btn-outline-danger" type="button"
+                   th:attr="onclick=|infoDelete('${facility.id}','${facility.names}')|" data-bs-toggle="modal"
+                   data-bs-target="#exampleModal" style="font-size: 14px">Xóa</a>
             </td>
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/facility(page=${facilityPage.number - 1})}" th:if="${facilityPage.hasPrevious()}">
+        <button type="submit" style="background-color: #E2F0EB4D; font-size: 15px">Previous</button>
+    </a>
+
+    <span th:text="${facilityPage.number + 1}+'/'+${facilityPage.totalPages}"></span>
+    <a th:href="@{/facility(page=${facilityPage.number + 1})}" th:if="${facilityPage.hasNext()}">
+        <button type="submit" style="background-color: #E2F0EB4D; font-size: 15px">Next</button>
+    </a>
 </div>
-<!--______________________Modal_________________________-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     style="margin-top: 100px">
+    <div class="modal-dialog">
+        <form action="/facility/delete" method="post">
+            <div class="modal-content"
+                 style="background-image: linear-gradient(to top right, #EB9FC0, #B83F8F, #2C2867); overflow:hidden ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: white">Delete facility information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <input type="number" hidden id="deleteId">
+                    <span style="color: white">You definitely want to delete ? </span><br>
+                    <span id="deleteName" style="color: white"></span>
+                </div>
+
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+<script th:inline="javascript">
+    function infoDelete(id, name) {
+        document.getElementById("deleteId").value = id;
+        debugger
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
 
 
 

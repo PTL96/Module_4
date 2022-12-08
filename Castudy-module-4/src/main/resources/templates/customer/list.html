@@ -25,7 +25,8 @@
     <form class="d-flex" action="/customer/" style="text-align: center; padding-bottom: 10px;margin: 0 10px">
         <input class="form-control me-2" name="names" type="search" placeholder="Search name" aria-label="Search">
         <input class="form-control me-2" name="email" type="search" placeholder="Search email" aria-label="Search">
-        <select class="form-select" aria-label="Default select example" name="customer_type" style="padding-right: 10px">
+        <select class="form-select" aria-label="Default select example" name="customer_type"
+                style="padding-right: 10px">
             <option selected value="0">Customer type:</option>
             <option value="1">Diamond</option>
             <option value="2">Platinum</option>
@@ -86,7 +87,7 @@
 
     <span th:text="${customerPage.number + 1}+'/'+${customerPage.totalPages}"></span>
     <a th:href="@{/customer(page=${customerPage.number + 1})}" th:if="${customerPage.hasNext()}">
-        <button type="submit" style="background-color: #E2F0EB4D; font-size: 15px">Next </button>
+        <button type="submit" style="background-color: #E2F0EB4D; font-size: 15px">Next</button>
     </a>
 </div>
 

@@ -10,94 +10,134 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>
 
+    <style>
+
+        @-webkit-keyframes my {
+            0% { color: #FF3333; }
+            50% { color: #FFCC00;  }
+            100% { color: #FF3333;  }
+        }
+        @-moz-keyframes my {
+            0% { color: #FF3333;  }
+            50% { color: #FFCC00;  }
+            100% { color: #FF3333;  }
+        }
+        @-o-keyframes my {
+            0% { color: #FF3333; }
+            50% { color: #FFCC00; }
+            100% { color: #FF3333;  }
+        }
+        @keyframes my {
+            0% { color: #FF3333;  }
+            50% { color: #FFCC00;  }
+            100% { color: #FF3333;  }
+        }
+        .chutieude {
+            font-size:24px;
+            font-weight:bold;
+            -webkit-animation: my 700ms infinite;
+            -moz-animation: my 700ms infinite;
+            -o-animation: my 700ms infinite;
+            animation: my 700ms infinite;
+        }
+    </style>
 </head>
 
 
 <body>
 <div style="text-align: center; font-size: 14px; background-image: linear-gradient(to top right, #EB9FC0, #B83F8F, #2C2867);height: 100vh; overflow:hidden ">
-
-    <h1 style="font-size: 40px; color: white">FACILITY</h1>
-    <form class="d-flex" action="  " style="text-align: center; padding-bottom: 10px;margin: 0 10px">
-        <input class="form-control me-2" name="searchName" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary" type="submit" style="float: left; margin-right: 75%; font-size: 15px">Search
+    <a th:href="@{/facility}">
+        <button type="button" class="btn btn-primary" value="back"
+                style="float: right; font-size: 16px; margin-top: 57px">Back
         </button>
-    </form>
+    </a>
+    <h1 style="font-size: 40px; color: white">FACILITY</h1>
 
-    <form action="/facility/save" th:object="${facilityList}" method="post">
-<div style="margin-right: 500px; margin-left: 500px; color: white" th:border="1">
-        <div>
-            <label class="form-label">Tên Dịch Vụ:</label>
-            <input class="form-control" type="text" placeholder="Tên dịch vụ" th:field="*{names}"/></div>
 
-        <div>
-            <label class="form-label"> Diện Tích :</label>
-            <input class="form-control" type="text" placeholder="Diện tích" th:field="*{area}"/>
+    <form action="/facility/save" th:object="${facilityDto}" method="post">
+        <div style="margin-right: 500px; margin-left: 500px; color: white" th:border="1">
+            <div>
+                <label class="form-label">Tên Dịch Vụ:</label>
+                <input class="form-control" type="text" placeholder="Tên dịch vụ" th:field="*{names}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{names}"></p>
+            </div>
+
+            <div>
+                <label class="form-label"> Diện Tích :</label>
+                <input class="form-control" type="text" placeholder="Diện tích" th:field="*{area}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{area}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Chi Phí Thuê :</label>
+                <input class="form-control" type="text" placeholder="Chi phí thuê" th:field="*{cost}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{cost}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Số Người Tối Đa :</label>
+                <input class="form-control" type="text" placeholder="Số người tối đa" th:field="*{maxPeople}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{maxPeople}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Tiêu Chuẩn Phòng :</label>
+                <input class="form-control" type="text" placeholder="Tiêu chuẩn phòng" th:field="*{standardRoom}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{standardRoom}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Tiện Nghi Khác :</label>
+                <input class="form-control" type="text" placeholder="Tiện nghi khác" th:field="*{otherConvenience}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{otherConvenience}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Diện Tích Hồ Bơi :</label>
+                <input class="form-control" type="text" placeholder="Diện tích hồ bơi" th:field="*{poolArea}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{poolArea}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Số Tầng :</label>
+                <input class="form-control" type="text" placeholder="Số tầng" th:field="*{numberFloors}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{numberFloors}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Dịch Vụ Miễn Phí Đi Kèm :</label>
+                <input class="form-control" type="text" placeholder="Dịch vụ miễn phí đi kèm"
+                       th:field="*{facilityFree}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{facilityFree}"></p>
+            </div>
+            <div>
+                <label class="form-label">Kiểu Thuê :</label>
+                <label>
+                    <select th:field="*{rentType.id}" style="font-size: 15px">
+                        <option th:value="1" text="year">Year</option>
+                        <option th:value="2" text="month">Month</option>
+                        <option th:value="3" text="day">Day</option>
+                        <option th:value="4" text="hour">Hour</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label class="form-label">Loại Dịch Vụ :</label>
+                <label>
+                    <select th:field="*{facilityType.id}" style="font-size: 15px">
+                        <option th:value="1" text="villa">Villa</option>
+                        <option th:value="2" text="house">House</option>
+                        <option th:value="3" text="room">Room</option>
+                    </select>
+                </label>
+            </div>
 
         </div>
-        <div>
-            <label class="form-label">Chi Phí Thuê :</label>
-            <input class="form-control" type="text" placeholder="Chi phí thuê" th:field="*{cost}"/>
-        </div>
-        <div>
-            <label class="form-label">Số Người Tối Đa :</label>
-            <input class="form-control" type="text" placeholder="Số người tối đa" th:field="*{maxPeople}"/>
-        </div>
-
-        <div>
-            <label class="form-label">Tiêu Chuẩn Phòng :</label>
-            <input class="form-control" type="text" placeholder="Tiêu chuẩn phòng" th:field="*{standardRoom}"/>
-        </div>
-
-        <div>
-            <label class="form-label">Tiện Nghi Khác :</label>
-            <input class="form-control" type="text" placeholder="Tiện nghi khác" th:field="*{otherConvenience}"/>
-        </div>
-
-        <div>
-            <label class="form-label">Diện Tích Hồ Bơi :</label>
-            <input class="form-control" type="text" placeholder="Diện tích hồ bơi" th:field="*{poolArea}"/>
-        </div>
-
-        <div>
-            <label class="form-label">Số Tầng :</label>
-            <input class="form-control" type="text" placeholder="Số tầng" th:field="*{numberFloors}"/>
-        </div>
-        <div>
-            <label class="form-label">Dịch Vụ Miễn Phí Đi Kèm :</label>
-            <input class="form-control" type="text" placeholder="Dịch vụ miễn phí đi kèm" th:field="*{facilityFree}"/>
-        </div>
-        <div>
-            <label class="form-label">Kiểu Thuê :</label>
-            <label>
-                <select th:field="*{rentType.id}">
-                    <option th:value="1" text="Tiểu thuyết">Year</option>
-                    <option th:value="2" text="Sách">Month</option>
-                    <option th:value="3" text="Tự do">Day</option>
-                    <option th:value="4" text="Tự do">Hour</option>
-                </select>
-            </label>
-        </div>
-        <div>
-            <label class="form-label">Loại Dịch Vụ :</label>
-            <label>
-                <select th:field="*{facilityType.id}">
-                    <option th:value="1" text="Tiểu thuyết">Villa</option>
-                    <option th:value="2" text="Sách">House</option>
-                    <option th:value="3" text="Tự do">Room</option>
-                </select>
-            </label>
-        </div>
-
-</div>
         <div style="text-align: center">
             <input type="submit" value="Save" class="m-3 btn btn-info"></div>
     </form>
 
 </div>
-<!--______________________Modal_________________________-->
-
-
-
 
 </body>
 </html>

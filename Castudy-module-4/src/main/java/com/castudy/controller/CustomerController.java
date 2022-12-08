@@ -15,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @Controller
 @RequestMapping("/customer")
 
@@ -24,13 +23,12 @@ public class CustomerController {
     ICustomerService customerService;
 
     @GetMapping("")
-    public String showList(@PageableDefault(page = 0, size = 5)Pageable pageable,
+    public String showList(@PageableDefault(page = 0, size = 5) Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String names,
-                           @RequestParam(required = false, defaultValue = "")String email,
-                           @RequestParam(required = false,defaultValue = "")String customer_type,  Model model) {
-        Page<Customer> customerPage = customerService.searchPage(pageable,names,email,customer_type);
+                           @RequestParam(required = false, defaultValue = "") String email,
+                           @RequestParam(required = false, defaultValue = "") String customer_type, Model model) {
+        Page<Customer> customerPage = customerService.searchPage(pageable, names, email, customer_type);
         model.addAttribute("customerPage", customerPage);
-
         return "customer/list";
     }
 
@@ -70,7 +68,7 @@ public class CustomerController {
     }
 
     @PostMapping("/update")
-    public String edit(@Validated @ModelAttribute(value = "customer") CustomerDto customerDto, BindingResult bindingResult,Model model) {
+    public String edit(@Validated @ModelAttribute(value = "customer") CustomerDto customerDto, BindingResult bindingResult, Model model) {
 
         new CustomerDto().validate(customerDto, bindingResult);
         if (bindingResult.hasFieldErrors()) {
