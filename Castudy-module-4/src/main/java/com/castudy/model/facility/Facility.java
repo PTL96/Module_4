@@ -1,6 +1,9 @@
 package com.castudy.model.facility;
 
+import com.castudy.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -21,7 +24,8 @@ public class Facility {
     private FacilityType facilityType;
     @ManyToOne
     private RentType rentType;
-
+    @OneToMany(mappedBy = "facility")
+private Set<Contract> contracts;
     public Facility() {
     }
 
