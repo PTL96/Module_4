@@ -1,4 +1,7 @@
 package com.castudy.repository;
 
-public interface IFacilityRepository {
+import com.castudy.model.facility.Facility;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
 }

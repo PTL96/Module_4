@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Furama-Facility</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+
 </head>
+
+
 <body>
+<div style="text-align: center; font-size: 14px; background-image: linear-gradient(to top right, #EB9FC0, #B83F8F, #2C2867);height: 100vh; overflow:hidden ">
+    <a th:href="@{/facility/create}">
+        <button type="button" class="btn btn-primary" value="Add New"
+                style="float: right; font-size: 16px; margin-top: 57px">Add New
+        </button>
+    </a>
+    <h1 style="font-size: 40px; color: white">FACILITY</h1>
+    <form class="d-flex" action="  " style="text-align: center; padding-bottom: 10px;margin: 0 10px">
+        <input class="form-control me-2" name="searchName" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit" style="float: left; margin-right: 75%; font-size: 15px">Search
+        </button>
+    </form>
+
+    <table id="product" class="table table-hover" style="background-color: #E2F0EB4D">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên Dịch Vụ</th>
+            <th>Diện Tích</th>
+            <th>Chi Phí Thuê</th>
+            <th>Số Người Tối Đa</th>
+            <th>Tiêu Chuẩn Phòng</th>
+            <th>Tiện Nghi Khác</th>
+            <th>Diện Tích Hồ Bơi</th>
+            <th>Số Tầng</th>
+            <th>Dịch Vụ Miễn Phí Đi Kèm</th>
+            <th>Kiểu Thuê</th>
+            <th>Loại Dịch Vụ</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="facility, varStatus:${facilityList}" style="text-align: center">
+            <td th:text="${varStatus.count}"></td>
+            <td th:text="${facility.names}"></td>
+            <td th:text="${facility.area}"></td>
+            <td th:text="${facility.cost}"></td>
+            <td th:text="${facility.maxPeople}"></td>
+            <td th:text="${facility.standardRoom}"></td>
+            <td th:text="${facility.otherConvenience}"></td>
+            <td th:text="${facility.poolArea}"></td>
+            <td th:text="${facility.numberFloors}"></td>
+            <td th:text="${facility.facilityFree}"></td>
+            <td th:text="${facility.rentType.names}"></td>
+            <td th:text="${facility.facilityType.names}"></td>
+            <td>
+                <a class="btn btn-outline-warning" style="font-size: 14px">Sửa</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" style="font-size: 14px">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--______________________Modal_________________________-->
+
+
+
 
 </body>
 </html>

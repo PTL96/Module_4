@@ -1,4 +1,13 @@
 package com.castudy.service;
 
-public interface IFacilityService {
+import com.castudy.model.facility.Facility;
+
+import java.util.List;
+
+public interface IFacilityService{
+    List<Facility> findAll();
+
+    Object findById(Integer id);
+
+    void save(Facility facility);
 }

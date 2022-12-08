@@ -1,0 +1,82 @@
+#body-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    background-color: lavender;
+    padding: 0;
+}
+
+.sidebar-expanded {
+    width: 230px;
+}
+
+{
+    width: 100px;
+}
+
+
+#sidebar-container .list-group a {
+    height: 50px;
+    color: black;
+}
+
+
+#sidebar-container .list-group li.list-group-item {
+    background-color: #CC99FF;
+}
+
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+}
+
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+
+.sidebar-separator-title {
+    background-color: lavender;
+    height: 35px;
+}
+
+.sidebar-separator {
+    background-color: lavender;
+    height: 25px;
+}
+
+a.bg-dark {
+    background-color: lavender !important;
+
+
+}
+@-webkit-keyframes my {
+    0% { color: #FF3333; }
+    50% { color: #FFCC00;  }
+    100% { color: #FF3333;  }
+}
+@-moz-keyframes my {
+    0% { color: #FF3333;  }
+    50% { color: #FFCC00;  }
+    100% { color: #FF3333;  }
+}
+@-o-keyframes my {
+    0% { color: #FF3333; }
+    50% { color: #FFCC00; }
+    100% { color: #FF3333;  }
+}
+@keyframes my {
+    0% { color: #FF3333;  }
+    50% { color: #FFCC00;  }
+    100% { color: #FF3333;  }
+}
+.chutieude {
+    font-size:24px;
+    font-weight:bold;
+    -webkit-animation: my 700ms infinite;
+    -moz-animation: my 700ms infinite;
+    -o-animation: my 700ms infinite;
+    animation: my 700ms infinite;
+}
