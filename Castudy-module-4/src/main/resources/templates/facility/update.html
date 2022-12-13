@@ -1,10 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Furama-Facility</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+
+    <style>
+
+        @-webkit-keyframes my {
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
+        }
+
+        @-moz-keyframes my {
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
+        }
+
+        @-o-keyframes my {
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
+        }
+
+        @keyframes my {
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
+        }
+
+        .chutieude {
+            font-size: 24px;
+            font-weight: bold;
+            -webkit-animation: my 700ms infinite;
+            -moz-animation: my 700ms infinite;
+            -o-animation: my 700ms infinite;
+            animation: my 700ms infinite;
+        }
+    </style>
 </head>
+
+
 <body>
+<div style="text-align: center; font-size: 14px; background-image: linear-gradient(to top right, #EB9FC0, #B83F8F, #2C2867);height: 100vh; overflow:hidden ">
+    <a th:href="@{/facility}">
+        <button type="button" class="btn btn-primary" value="back"
+                style="float: right; font-size: 16px; margin-top: 57px">Back
+        </button>
+    </a>
+    <h1 style="font-size: 40px; color: white">UPDATE FACILITY</h1>
+
+
+    <form action="/facility/save" th:object="${facility}" method="post">
+        <input hidden id="id" class="form-control" type="text" th:field="*{id}"/>
+        <div style="margin-right: 500px; margin-left: 500px; color: white" th:border="1">
+            <div>
+                <label class="form-label">Tên Dịch Vụ:</label>
+                <input class="form-control" type="text" placeholder="Tên dịch vụ" th:field="*{names}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{names}"></p>
+            </div>
+
+            <div>
+                <label class="form-label"> Diện Tích :</label>
+                <input class="form-control" type="text" placeholder="Diện tích" th:field="*{area}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{area}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Chi Phí Thuê :</label>
+                <input class="form-control" type="text" placeholder="Chi phí thuê" th:field="*{cost}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{cost}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Số Người Tối Đa :</label>
+                <input class="form-control" type="text" placeholder="Số người tối đa" th:field="*{maxPeople}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{maxPeople}"></p>
+            </div>
+
+
+            <div>
+                <label class="form-label">Tiện Nghi Khác :</label>
+                <input class="form-control" type="text" placeholder="Tiện nghi khác" th:field="*{otherConvenience}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{otherConvenience}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Diện Tích Hồ Bơi :</label>
+                <input class="form-control" type="text" placeholder="Diện tích hồ bơi" th:field="*{poolArea}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{poolArea}"></p>
+            </div>
+
+            <div>
+                <label class="form-label">Số Tầng :</label>
+                <input class="form-control" type="text" placeholder="Số tầng" th:field="*{numberFloors}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{numberFloors}"></p> <br>
+            </div>
+
+            <nav>
+                <label class="form-label">Kiểu Thuê :</label>
+                <label>
+                    <select th:field="*{rentType.id}" style="font-size: 17px">
+                        <option th:value="1" text="year">Year</option>
+                        <option th:value="2" text="month">Month</option>
+                        <option th:value="3" text="day">Day</option>
+                        <option th:value="4" text="hour">Hour</option>
+                    </select>
+                </label>
+
+                <label class="form-label">Loại Dịch Vụ :</label>
+                <label>
+                    <select th:field="*{facilityType.id}" style="font-size: 17px">
+                        <option th:value="1" text="villa">Villa</option>
+                        <option th:value="2" text="house">House</option>
+                        <option th:value="3" text="room">Room</option>
+                    </select>
+                </label>
+
+                <label class="form-label">Standard Room :</label>
+                <label>
+                    <select th:field="*{standardRoom}" style="font-size: 17px">
+                        <option th:text="Vip" th:value="1">Vip</option>
+                        <option th:text="Normal" th:value="0">Normal</option>
+                    </select>
+                </label>
+
+            </nav>
+
+            <div>
+                <label class="form-label">Dịch Vụ Miễn Phí Đi Kèm :</label>
+                <input class="form-control" type="text" placeholder="Dịch vụ miễn phí đi kèm"
+                       th:field="*{facilityFree}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{facilityFree}"></p>
+            </div>
+
+        </div>
+        <div style="text-align: center">
+            <input type="submit" value="Save" class="m-3 btn btn-info"></div>
+    </form>
+
+</div>
 
 </body>
 </html>

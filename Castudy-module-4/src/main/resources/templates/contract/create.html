@@ -59,22 +59,21 @@
         </button>
     </form>
 
-    <form action="/customer/save" th:object="${customerDto}" method="post">
+    <form action="/customer/save" th:object="${contract}" method="post">
         <div style="margin-right: 500px; margin-left: 500px; color: white" th:border="1">
             <div>
-                <label class="form-label">Customer Name:</label>
-                <input class="form-control" type="text" placeholder="Customer Name" th:field="*{names}"/>
-                <p class="chutieude" style="font-size: 12px" th:errors="*{names}"></p>
+                <label class="form-label">Start Day :</label>
+                <input class="form-control" type="date" placeholder="Customer Name" th:field="*{starDay}"/>
             </div>
 
             <div>
-                <label class="form-label"> Day Of Birth :</label>
-                <input class="form-control" type="date" placeholder="Date Of Birth" th:field="*{dayOfBirth}"/>
+                <label class="form-label"> End Day :</label>
+                <input class="form-control" type="date" placeholder="Date Of Birth" th:field="*{endDay}"/>
 
                 <div>
-                    <label class="form-label">Gender :</label><br>
+                    <label class="form-label">Customer Name :</label><br>
                     <label>
-                        <select th:field="*{gender}" style="font-size: 15px">
+                        <select th:field="*{customerList}" style="font-size: 15px">
                             <option th:text="Male" th:value="1">Male</option>
                             <option th:text="Female" th:value="0">Female</option>
                             <option th:text="Other" th:value="2">Other</option>
@@ -114,7 +113,7 @@
                     <label class="form-label">Customer Type :</label><br>
                     <label>
                         <select th:field="*{customerType.id}" style="font-size: 15px">
-?                            <option th:value="1" text="diamond">Diamond</option>
+                            ?                            <option th:value="1" text="diamond">Diamond</option>
                             <option th:value="2" text="platinum">Platinum</option>
                             <option th:value="3" text="gold">Gold</option>
                             <option th:value="4" text="silver">Silver</option>

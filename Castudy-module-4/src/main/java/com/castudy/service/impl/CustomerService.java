@@ -1,7 +1,7 @@
 package com.castudy.service.impl;
 
 import com.castudy.model.customer.Customer;
-import com.castudy.model.customer.CustomerType;
+
 import com.castudy.repository.ICustomerRepository;
 import com.castudy.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,7 @@ public class CustomerService implements ICustomerService {
     ICustomerRepository customerRepository;
 
 
-    @Override
-    public Page<Customer> findAll(Pageable pageable) {
-        return customerRepository.findAll(pageable);
-    }
+
 
     @Override
     public void save(Customer customer) {
@@ -42,6 +39,11 @@ public class CustomerService implements ICustomerService {
     @Override
     public Page<Customer> searchPage(Pageable pageable, String names, String email, String customer_type) {
         return customerRepository.searchPage(pageable, names, email, customer_type);
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
     }
 
 

@@ -29,7 +29,6 @@ public class CustomerDto implements Validator {
     @Email
     private String email;
     @NotEmpty(message = "Can't be left blank !")
-    @Pattern(regexp = "^\\p{Lu}\\p{Ll}+(\\s\\p{Lu}\\p{Ll}+)*$", message = "Address Invalid !")
     private String address;
     @ManyToOne
 private CustomerType customerType;

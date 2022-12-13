@@ -15,8 +15,7 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
-@OneToOne
-private Employee employee;
+
 
     public User() {
     }
@@ -27,7 +26,7 @@ private Employee employee;
         this.password = password;
         this.isEnabled = isEnabled;
         this.roles = roles;
-        this.employee = employee;
+
     }
 
     public Long getId() {
@@ -70,11 +69,4 @@ private Employee employee;
         this.roles = roles;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

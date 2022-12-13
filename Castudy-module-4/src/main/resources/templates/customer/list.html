@@ -20,14 +20,23 @@
                 style="float: right; font-size: 16px; margin-top: 57px">Add New
         </button>
     </a>
-    <h1 style="font-size: 40px; color: white">CUSTOMER LIST</h1>
 
-    <form class="d-flex" action="/customer/" style="text-align: center; padding-bottom: 10px;margin: 0 10px">
+    <h1 style="font-size: 40px; color: white">CUSTOMER LIST</h1>
+<!--    <div th:if="${mess}">-->
+<!--        <div class="justify-content-center d-flex">-->
+<!--            <div class="alert alert-success alert-dismissible fade show w-50 text-center">-->
+<!--                <strong th:text="${mess}"></strong>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <form class="d-flex" style="text-align: center; padding-bottom: 10px;margin: 0 10px">
         <input class="form-control me-2" name="names" type="search" placeholder="Search name" aria-label="Search">
         <input class="form-control me-2" name="email" type="search" placeholder="Search email" aria-label="Search">
         <select class="form-select" aria-label="Default select example" name="customer_type"
                 style="padding-right: 10px">
-            <option selected value="0">Customer type:</option>
+            <option selected value="">Customer type:</option>
             <option value="1">Diamond</option>
             <option value="2">Platinum</option>
             <option value="3">Gold</option>
@@ -35,6 +44,7 @@
             <option value="5">Member</option>
         </select>
         <button class="btn btn-primary" type="submit" style="float: left; margin-right: 60%; font-size: 15px">Search
+
         </button>
     </form>
 
@@ -71,16 +81,17 @@
 
             <td>
                 <a class="btn btn-outline-warning" th:href="@{/customer/update{id}(id=${customer.id})}"
-                   style="font-size: 14px">Sửa</a>
+                   style="font-size: 14px">Update</a>
             </td>
             <td>
                 <a class="btn btn-outline-danger" type="button"
                    th:attr="onclick=|infoDelete('${customer.id}','${customer.names}')|" data-bs-toggle="modal"
-                   data-bs-target="#exampleModal" style="font-size: 14px">Xóa</a>
+                   data-bs-target="#exampleModal" style="font-size: 14px">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+
     <a th:href="@{/customer(page=${customerPage.number - 1})}" th:if="${customerPage.hasPrevious()}">
         <button type="submit" style="background-color: #E2F0EB4D; font-size: 15px">Previous</button>
     </a>
@@ -89,7 +100,9 @@
     <a th:href="@{/customer(page=${customerPage.number + 1})}" th:if="${customerPage.hasNext()}">
         <button type="submit" style="background-color: #E2F0EB4D; font-size: 15px">Next</button>
     </a>
+
 </div>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
      style="margin-top: 100px">
@@ -103,7 +116,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <input type="number" hidden id="deleteId">
+                    <input type="number" name="deleteId" hidden id="deleteId">
                     <span style="color: white">You definitely want to delete ? </span><br>
                     <span id="deleteName" style="color: white"></span>
                 </div>

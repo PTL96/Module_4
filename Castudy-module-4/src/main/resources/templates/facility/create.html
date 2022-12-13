@@ -13,28 +13,56 @@
     <style>
 
         @-webkit-keyframes my {
-            0% { color: #FF3333; }
-            50% { color: #FFCC00;  }
-            100% { color: #FF3333;  }
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
         }
+
         @-moz-keyframes my {
-            0% { color: #FF3333;  }
-            50% { color: #FFCC00;  }
-            100% { color: #FF3333;  }
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
         }
+
         @-o-keyframes my {
-            0% { color: #FF3333; }
-            50% { color: #FFCC00; }
-            100% { color: #FF3333;  }
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
         }
+
         @keyframes my {
-            0% { color: #FF3333;  }
-            50% { color: #FFCC00;  }
-            100% { color: #FF3333;  }
+            0% {
+                color: #FF3333;
+            }
+            50% {
+                color: #FFCC00;
+            }
+            100% {
+                color: #FF3333;
+            }
         }
+
         .chutieude {
-            font-size:24px;
-            font-weight:bold;
+            font-size: 24px;
+            font-weight: bold;
             -webkit-animation: my 700ms infinite;
             -moz-animation: my 700ms infinite;
             -o-animation: my 700ms infinite;
@@ -80,11 +108,6 @@
                 <p class="chutieude" style="font-size: 12px" th:errors="*{maxPeople}"></p>
             </div>
 
-            <div>
-                <label class="form-label">Tiêu Chuẩn Phòng :</label>
-                <input class="form-control" type="text" placeholder="Tiêu chuẩn phòng" th:field="*{standardRoom}"/>
-                <p class="chutieude" style="font-size: 12px" th:errors="*{standardRoom}"></p>
-            </div>
 
             <div>
                 <label class="form-label">Tiện Nghi Khác :</label>
@@ -101,35 +124,44 @@
             <div>
                 <label class="form-label">Số Tầng :</label>
                 <input class="form-control" type="text" placeholder="Số tầng" th:field="*{numberFloors}"/>
-                <p class="chutieude" style="font-size: 12px" th:errors="*{numberFloors}"></p>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{numberFloors}"></p> <br>
             </div>
 
-            <div>
-                <label class="form-label">Dịch Vụ Miễn Phí Đi Kèm :</label>
-                <input class="form-control" type="text" placeholder="Dịch vụ miễn phí đi kèm"
-                       th:field="*{facilityFree}"/>
-                <p class="chutieude" style="font-size: 12px" th:errors="*{facilityFree}"></p>
-            </div>
-            <div>
+            <nav>
                 <label class="form-label">Kiểu Thuê :</label>
                 <label>
-                    <select th:field="*{rentType.id}" style="font-size: 15px">
+                    <select th:field="*{rentType.id}" style="font-size: 17px">
                         <option th:value="1" text="year">Year</option>
                         <option th:value="2" text="month">Month</option>
                         <option th:value="3" text="day">Day</option>
                         <option th:value="4" text="hour">Hour</option>
                     </select>
                 </label>
-            </div>
-            <div>
+
                 <label class="form-label">Loại Dịch Vụ :</label>
                 <label>
-                    <select th:field="*{facilityType.id}" style="font-size: 15px">
+                    <select th:field="*{facilityType.id}" style="font-size: 17px">
                         <option th:value="1" text="villa">Villa</option>
                         <option th:value="2" text="house">House</option>
                         <option th:value="3" text="room">Room</option>
                     </select>
                 </label>
+
+                <label class="form-label">Standard Room :</label>
+                <label>
+                    <select th:field="*{standardRoom}" style="font-size: 17px">
+                        <option th:text="Vip" th:value="1">Vip</option>
+                        <option th:text="Normal" th:value="0">Normal</option>
+                    </select>
+                </label>
+
+            </nav>
+
+            <div>
+                <label class="form-label">Dịch Vụ Miễn Phí Đi Kèm :</label>
+                <input class="form-control" type="text" placeholder="Dịch vụ miễn phí đi kèm"
+                       th:field="*{facilityFree}"/>
+                <p class="chutieude" style="font-size: 12px" th:errors="*{facilityFree}"></p>
             </div>
 
         </div>

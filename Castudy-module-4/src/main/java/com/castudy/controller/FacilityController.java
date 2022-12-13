@@ -24,7 +24,7 @@ public class FacilityController {
 
 
     @GetMapping("")
-    public String showList(@PageableDefault(page = 0, size = 5) Pageable pageable,
+    public String showList(@PageableDefault(page = 0, size = 10) Pageable pageable,
                            @RequestParam(required = false, defaultValue = "") String names,
                            @RequestParam(required = false, defaultValue = "") String facility_type, Model model) {
         Page<Facility> facilityPage = facilityService.searchPage(pageable, names, facility_type);

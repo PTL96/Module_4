@@ -1,6 +1,7 @@
 package com.castudy.model.facility;
 
 import com.castudy.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -21,15 +22,18 @@ public class Facility {
     private int numberFloors;
     private String facilityFree;
     @ManyToOne
+    @JsonBackReference
     private FacilityType facilityType;
     @ManyToOne
+
     private RentType rentType;
     @OneToMany(mappedBy = "facility")
+    @JsonBackReference
 private Set<Contract> contracts;
     public Facility() {
     }
 
-    public Facility(int id, String names, int area, String cost, int maxPeople, String standardRoom, String otherConvenience, String poolArea, int numberFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
+    public Facility(int id, String names, int area, String cost, int maxPeople, String standardRoom, String otherConvenience, String poolArea, int numberFloors, String facilityFree, FacilityType facilityType, RentType rentType, Set<Contract> contracts) {
         this.id = id;
         this.names = names;
         this.area = area;
@@ -42,6 +46,7 @@ private Set<Contract> contracts;
         this.facilityFree = facilityFree;
         this.facilityType = facilityType;
         this.rentType = rentType;
+        this.contracts = contracts;
     }
 
     public int getId() {
@@ -138,5 +143,13 @@ private Set<Contract> contracts;
 
     public void setRentType(RentType rentType) {
         this.rentType = rentType;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

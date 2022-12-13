@@ -1,9 +1,12 @@
 package com.castudy.model.customer;
 
 import com.castudy.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 import javax.persistence.*;
 import java.util.Set;
+
 @Entity
 public class Customer {
     @Id
@@ -16,11 +19,13 @@ public class Customer {
     private String phoneNumber;
     private String email;
     private String address;
-@ManyToOne
+    @Column(columnDefinition = "int default 1")
+    private Integer deleteStatus;
+    @ManyToOne
     private CustomerType customerType;
-
     @OneToMany(mappedBy = "customer")
-   private Set<Contract> contracts;
+    @JsonBackReference
+    private Set<Contract> contracts;
 
     public Customer() {
     }

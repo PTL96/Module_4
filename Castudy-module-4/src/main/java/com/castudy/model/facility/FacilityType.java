@@ -1,6 +1,7 @@
 package com.castudy.model.facility;
 
 import com.castudy.model.facility.Facility;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;

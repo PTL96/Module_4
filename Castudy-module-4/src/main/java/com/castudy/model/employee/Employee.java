@@ -25,8 +25,6 @@ public class Employee {
     private EducationDegree educationDegree;
 @ManyToOne
     private Division division;
-@OneToOne
-    private User user;
 
     public Employee() {
     }
@@ -44,7 +42,7 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.user = user;
+
     }
 
     public int getId() {
@@ -143,11 +141,4 @@ public class Employee {
         this.division = division;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

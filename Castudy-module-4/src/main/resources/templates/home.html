@@ -63,24 +63,46 @@
 
         }
         @-webkit-keyframes my {
-            0% { color: #FF3333; }
-            50% { color: #FFCC00;  }
-            100% { color: #FF3333;  }
+            100% { color: #FFFF33; }
+            70% { color: #FF3300;  }
+            50% { color: #FF6600;  }
+            40% { color: #009900; }
+            30% { color: #3333FF;  }
+            20% { color: #330099;  }
+            10% { color: #9933CC; }
+
         }
         @-moz-keyframes my {
-            0% { color: #FF3333;  }
-            50% { color: #FFCC00;  }
-            100% { color: #FF3333;  }
+            100% { color: #FFFF33; }
+            70% { color: #FF3300;  }
+            50% { color: #FF6600;  }
+            40% { color: #009900; }
+            30% { color: #3333FF;  }
+            20% { color: #330099;  }
+            10% { color: #9933CC; }
+
+
         }
         @-o-keyframes my {
-            0% { color: #FF3333; }
-            50% { color: #FFCC00; }
-            100% { color: #FF3333;  }
+            100% { color: #FFFF33; }
+            70% { color: #FF3300;  }
+            50% { color: #FF6600;  }
+            40% { color: #009900; }
+            30% { color: #3333FF;  }
+            20% { color: #330099;  }
+            10% { color: #9933CC; }
+
+
         }
         @keyframes my {
-            0% { color: #FF3333;  }
-            50% { color: #FFCC00;  }
-            100% { color: #FF3333;  }
+            100% { color: #FFFF33; }
+            70% { color: #FF3300;  }
+            50% { color: #FF6600;  }
+            40% { color: #009900; }
+            30% { color: #3333FF;  }
+            20% { color: #330099;  }
+            10% { color: #9933CC; }
+
         }
         .chutieude {
             font-size:24px;
@@ -112,11 +134,12 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" th:href="@{/customer}">Customer</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Contract</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Employee</a></li>
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" th:href="@{/facility}">Facility</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" th:href="@{/contract}">Contract</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" th:href="@{/employee}">Employee</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -136,9 +159,18 @@
         7.0 km từ Sân bay Quốc tế Đà Nẵng</p>
 </div>
 
-<div class="chutieude" style="font-size: 35px; background-color: lavender">
-    <marquee scrollamount = 15>꧁༺WELCOME TO FURAMA RESORT༻꧂</marquee>
-</div>
+<nav class="chutieude" style="font-size: 35px; background-color: lavender">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-6">
+                <marquee scrollamount = 20>☃︎☃︎☃︎MERRY CHRISTMAS☃︎☃︎☃︎</marquee>
+            </div>
+            <div class="col-6">
+                    <marquee scrollamount = 20>꧁༺FURAMA RESORT༻꧂</marquee>
+            </div>
+        </div>
+    </div>
+</nav>
 
 
 <div class="container-fluid p-0" style="background-color:lavender">
