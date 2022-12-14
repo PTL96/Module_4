@@ -16,4 +16,9 @@ public class EmployeeService implements IEmployeeService {
     public Page<Employee> searchPage(Pageable pageable, String names_employee, String phone_number) {
         return employeeRepository.searchPage(pageable,names_employee,phone_number);
     }
+
+    @Override
+    public Object findAll() {
+        return employeeRepository.findAll();
+    }
 }

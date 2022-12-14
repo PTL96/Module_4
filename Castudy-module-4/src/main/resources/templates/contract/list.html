@@ -16,7 +16,11 @@
 
 <body>
 <div style="text-align: center; font-size: 14px; background-image: linear-gradient(to top right, #EB9FC0, #B83F8F, #2C2867);height: 100vh; overflow:hidden ">
-
+<!--    <a th:href="@{/contract/create}">-->
+<!--        <button type="button" class="btn btn-primary" value="Add New"-->
+<!--                style="float: right; font-size: 16px; margin-top: 57px">Add New-->
+<!--        </button>-->
+<!--    </a>-->
     <h1 style="font-size: 40px; color: white">CONTRACT LIST</h1>
 
     <form class="d-flex" action="/contract/" style="text-align: center; padding-bottom: 10px;margin: 0 10px">
@@ -54,7 +58,8 @@
             <td th:text="${contract.totalAmount}">
             <td>
                 <a class="btn btn-outline-info" type="button"
-                   data-bs-target="" style="font-size: 14px">+</a>
+                   data-bs-target="" style="font-size: 14px" th:href="@{/contract/create}">+</a>
+
             </td>
             <td>
                 <a class="btn btn-outline-danger" type="button"

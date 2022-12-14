@@ -4,10 +4,13 @@ package com.castudy.controller;
 import com.castudy.model.contract.Contract;
 import com.castudy.model.contract.IContractDto;
 import com.castudy.model.customer.Customer;
+import com.castudy.model.customer.CustomerDto;
+import com.castudy.model.employee.Employee;
 import com.castudy.model.facility.Facility;
 import com.castudy.service.IContractService;
 
 import com.castudy.service.ICustomerService;
+import com.castudy.service.IEmployeeService;
 import com.castudy.service.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,10 +21,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-
-
+import java.util.List;
 
 
 @Controller
@@ -29,20 +33,25 @@ import org.springframework.web.bind.annotation.*;
 public class ContractController {
     @Autowired
    private IContractService contractService;
+    @Autowired
+    private IFacilityService facilityService;
+    @Autowired
+    private ICustomerService customerService;
+    @Autowired
+    private IEmployeeService employeeService;
 
-//
-//    @GetMapping("contract")
-//    public String modelAndView(Model model, ModelMap modelMap){
-//        ModelAndView modelAndView = new ModelAndView("contract/create");
-//        List<Facility> facilityList = facilityService.findAll();
-//        List<Customer> customerList = customerService.findAll();
-//        List<Contract> contractList = contractService.findAll();
-//        modelAndView.addObject("facilityList", facilityList);
-//        modelAndView.addObject("customerList",customerList);
-//        modelAndView.addObject("contractList", contractList);
-//
-//        return "";
-//    }
+    @ModelAttribute("customerList")
+   public List<Customer> getCustomerList(){
+        return (List<Customer>) customerService.findAll();
+    }
+    @ModelAttribute("facilityList")
+    public List<Facility> getFacilityList(){
+        return (List<Facility>) facilityService.findAll();
+    }
+    @ModelAttribute("employeeList")
+    public List<Employee> getEmployeeList(){
+        return (List<Employee>) employeeService.findAll();
+    }
 
 
     @GetMapping("")
@@ -52,14 +61,17 @@ public class ContractController {
         return "contract/list";
     }
 
-
+    @GetMapping("/create")
+    public String create(Model model){
+        model.addAttribute("contract", new Contract());
+        return "contract/create";
+    }
 
     @GetMapping("/update{id}")
     public String update(@PathVariable Integer id, Model model){
         model.addAttribute("contract", contractService.findById(id));
 return "contract/update";
     }
-
 
 
 @PostMapping("/save")
