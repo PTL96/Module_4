@@ -13,7 +13,7 @@ public interface ICustomerService {
 
     void save(Customer customer);
 
-    void delete(Integer deleteId);
+    void deleteSql(Integer deleteId);
 
     Object findById(Integer id);
 

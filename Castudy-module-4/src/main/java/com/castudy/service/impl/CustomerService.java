@@ -27,8 +27,8 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void delete(Integer deleteId) {
-        customerRepository.deleteById(deleteId);
+    public void deleteSql(Integer deleteId) {
+        customerRepository.deleteSql(deleteId);
     }
 
     @Override

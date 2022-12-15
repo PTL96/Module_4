@@ -1,4 +1,6 @@
-package com.castudy.model.employee;
+package com.castudy.model.security;
+
+import com.castudy.model.employee.Employee;
 
 import javax.persistence.*;
 import java.util.List;

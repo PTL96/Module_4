@@ -1,6 +1,7 @@
 package com.castudy.model.employee;
 
 import com.castudy.model.contract.Contract;
+import com.castudy.model.security.User;
 
 import javax.persistence.*;
 import java.util.Set;
